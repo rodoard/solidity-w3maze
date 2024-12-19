@@ -1,0 +1,149 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+[data-theme] {
+  background: oklch(var(--b2));
+}
+
+body {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+p {
+  margin: 1rem 0;
+}
+
+.btn {
+  @apply shadow-md;
+}
+
+.btn.btn-ghost {
+  @apply shadow-none;
+}
+
+.maze-wrapper{
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  &:focus {
+    outline: none;
+  }
+.topWall {
+  border-top: 2px solid black;
+}
+}
+
+.rightWall {
+  border-right: 2px solid black;
+}
+
+.bottomWall {
+  border-bottom: 2px solid black;
+}
+
+.leftWall {
+  border-left: 2px solid black;
+}
+
+.sol {
+  div {
+    height: 50%;
+    width: 50%;
+    border-radius: 50%;
+    background: peachpuff;
+    display: inline-block;
+  }
+}
+
+.currentPosition {
+  div {
+    background-image:url($lib/assets/person.png);
+    height: 90%;
+    width: 90%;
+    border-radius: 50%;
+    display: block;
+    border:1px solid blue;
+     background-size: contain;     /* Ensure the background image fits inside the div */
+    background-repeat: no-repeat; /* Prevent repeating background */
+    background-position: center;  /* Center the background image */
+  }
+}
+
+.destination {
+  div {
+    background-image:url($lib/assets/trophy.png);
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    display: block;
+    border:1px solid green;
+     background-size: contain;     /* Ensure the background image fits inside the div */
+    background-repeat: no-repeat; /* Prevent repeating background */
+    background-position: center;  /* Center the background image */
+
+  }
+}
+
+.currentPosition.destination {
+  div {
+    animation: rainbowBall 5s infinite;
+  }
+}
+
+@keyframes rainbowBall {
+  0%   {background-color: gold;}
+  15%  {background-color: coral;}
+  29%  {background-color: papayawhip;}
+  43%  {background-color: darkseagreen;}
+  57%  {background-color: lightcyan;}
+  71% {background-color: dodgerblue;}
+  84% {background-color: violet;}
+  100% {background-color: indigo;}
+}
+
+.finished {
+  div {
+    position: relative;
+    top: 25%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: radial-gradient(circle, #ff0, #f00, transparent);
+    animation: explode 1s ease-out infinite;
+  }
+}
+  @keyframes explode {
+    0% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(5);
+    }
+  }
+
+#maze {
+  margin-top: 15px;
+  border-collapse: collapse;
+  td {
+    justify-content: center;      /* Center horizontally */
+    align-items: center;          /* Center vertically */
+    height: 20px;                 /* Ensure the cell has a height */
+    width: 20px;  
+  }
+}
