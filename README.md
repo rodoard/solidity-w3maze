@@ -1,5 +1,10 @@
 # Solidity W3Maze Game Full Stack
 
+##### Purpose 
+Implement a decentralized game with verification of successful completion of game
+
+##### Summary
+
 A dApp based on scaffold-eth-svelte that implements a decentralized maze game.
 It consists of 3 smart contracts: W3Maze, MazeStorage, and MazeOracle.
 
@@ -43,19 +48,25 @@ cd solidity-w3maze
 yarn
 ```
 
-2. Run a local chain
+2. Run tests
+
+```
+yarn test
+```
+
+3. Run a local chain
 
 ```
 yarn chain
 ```
 
-3. On a second terminal, deploy the example contract
+4. On a second terminal, deploy the example contract
 
 ```
 yarn deploy
 ```
 
-4. Start the frontend
+5. Start the frontend
 
 ```
 yarn start
